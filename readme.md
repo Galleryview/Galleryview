@@ -1,7 +1,7 @@
 
 # GalleryView
 
-GalleryView is a photo gallery plugin for jQuery. It offers several features such as a filmstrip, and now support to be responsive. You can find the latest version at https://github.com/bhubbard/GalleryView
+GalleryView is a photo gallery plugin for jQuery. It offers several features such as a filmstrip, and now support to be responsive. You can find the latest version at https://galleryview.co
 
 ## Contributors
 * Jack Anderson (@jackwanders)
