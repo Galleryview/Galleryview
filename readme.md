@@ -1,6 +1,10 @@
 
 # GalleryView
 
+[![Code Climate](https://codeclimate.com/github/galleryview/galleryview.js/badges/gpa.svg)](https://codeclimate.com/github/galleryview/galleryview.js)
+[![Test Coverage](https://codeclimate.com/github/galleryview/galleryview.js/badges/coverage.svg)](https://codeclimate.com/github/galleryview/galleryview.js/coverage)
+[![Issue Count](https://codeclimate.com/github/galleryview/galleryview.js/badges/issue_count.svg)](https://codeclimate.com/github/galleryview/galleryview.js)
+
 GalleryView is a photo gallery plugin for jQuery. It offers several features such as a filmstrip, and now support to be responsive. You can find the latest version at https://galleryview.co
 
 ## Contributors
