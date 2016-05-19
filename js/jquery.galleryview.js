@@ -511,7 +511,7 @@ if (typeof Object.create !== 'function') {
 			if(activate) {
 				var currentFrame = this.frameIterator;
 				this.frameIterator=0;//scroll from position 0
-				if(dom.gv_thumbnails!=undefined){
+				if(dom.gv_thumbnails!==undefined){
 					this.updateFilmstrip(currentFrame);
 				}
 				
@@ -662,7 +662,7 @@ if (typeof Object.create !== 'function') {
 				i = i % this.numImages;
 			} else if(i < 0) {
 				i = this.numImages - 1;
-				if(dom.gv_frames != undefined) {
+				if(dom.gv_frames !== undefined) {
 					frame_i = dom.gv_frames.length - 1;
 				} else {
 					frame_i = dom.gv_panels.length - 1;
