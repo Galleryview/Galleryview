@@ -935,9 +935,7 @@ if (typeof Object.create !== 'function') {
 						image.css('cursor','url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur), n-resize');	
 					}
 				});
-			} else {
-				
-			}
+			} 
 		},
 		
 		bindActions: function() {
