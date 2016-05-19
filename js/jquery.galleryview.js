@@ -669,7 +669,7 @@ if (typeof Object.create !== 'function') {
 				}
 			}
 
-			if( i == this.iterator ) {
+			if( i === this.iterator ) {
 			  return;
 			}
 			
@@ -1134,10 +1134,10 @@ if (typeof Object.create !== 'function') {
 		resizeGallery: function(panel_width, panel_height, frame_width, frame_height){
 	  
 			// new width and height
-			if(panel_width!=undefined){ this.opts.panel_width = panel_width; }
-			if(panel_height!=undefined){ this.opts.panel_height = panel_height; }
-			if(frame_width!=undefined){ this.opts.frame_width = frame_width; }
-			if(frame_height!=undefined){ this.opts.frame_height = frame_height; }
+			if(panel_width!==undefined){ this.opts.panel_width = panel_width; }
+			if(panel_height!==undefined){ this.opts.panel_height = panel_height; }
+			if(frame_width!==undefined){ this.opts.frame_width = frame_width; }
+			if(frame_height!==undefined){ this.opts.frame_height = frame_height; }
 		
 			// resize gallery: dimensions & positions
 			this.buildGallery(false);
