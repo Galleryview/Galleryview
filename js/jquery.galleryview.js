@@ -501,7 +501,7 @@ if (typeof Object.create !== 'function') {
 			}
       
 			//stop thumb animation
-			if(dom.gv_thumbnails!=undefined){
+			if(dom.gv_thumbnails!==undefined){
 				dom.gv_thumbnails.stop(true,true);
 			}
       
