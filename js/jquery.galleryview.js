@@ -95,7 +95,7 @@ if (typeof Object.create !== 'function') {
 		// create a jQuery element and apply attributes
 		createElem: function(attrs,elem) {
 			elem = document.createElement(elem);
-			var $elem = $(elem);
+			var $elem = jQuery(elem);
 			return $elem.attr(attrs);
 		},
 		
@@ -157,11 +157,11 @@ if (typeof Object.create !== 'function') {
 		// create gvImage objects for each image in gallery
 		storeImages: function() {
 			var self = this;
-			this.sourceImgs = $('li>img',this.$el);
+			this.sourceImgs = jQuery('li>img',this.$el);
 			this.numImages = this.sourceImgs.length;
 			this.gvImages = [];
 			this.sourceImgs.each(function(i,img) {
-				self.gvImages[i] = new gvImage($(img));
+				self.gvImages[i] = new gvImage(jQuery(img));
 			});
 		},
 		
@@ -245,7 +245,7 @@ if (typeof Object.create !== 'function') {
 			}else{
 				this_opts = this.opts;
 				$.each(dom.gv_panels,function(i,panel) {
-					$(panel).css({
+					jQuery(panel).css({
 						width: this_opts.panel_width,
 						height: this_opts.panel_height
 					});
@@ -415,13 +415,13 @@ if (typeof Object.create !== 'function') {
 				
 				dom.gv_thumbnail.bind({
 					mouseover: function() {
-						if(!$(this).hasClass('current')) {
-						$(this).stop().animate({opacity:1},250);
+						if(!jQuery(this).hasClass('current')) {
+						jQuery(this).stop().animate({opacity:1},250);
 						}
 					},
 					mouseout: function() {
-						if(!$(this).hasClass('current')) {
-							$(this).stop().animate({opacity:self.opts.frame_opacity},250);
+						if(!jQuery(this).hasClass('current')) {
+							jQuery(this).stop().animate({opacity:self.opts.frame_opacity},250);
 						}
 					}
 				});
@@ -465,7 +465,7 @@ if (typeof Object.create !== 'function') {
 			if(create){
 				dom.gv_frames = dom.gv_filmstrip.find('.gv_frame');
 				$.each(dom.gv_frames,function(i,frame) {
-					$(frame).data('frameIndex',i);						  
+					jQuery(frame).data('frameIndex',i);						  
 				});
 				dom.gv_thumbnails = dom.gv_filmstrip.find('div.gv_thumbnail');
 			}
@@ -549,10 +549,10 @@ if (typeof Object.create !== 'function') {
 			var self = this,
 				dom = this.dom;
 			$.each(this.gvImages,function(i,gvImage) {
-				var img = $('<img/>');
+				var img = jQuery('<img/>');
 				img.css('visibility','hidden').data('index',i);
 				img.bind('load.galleryview',function() {
-					var _img = $(this),
+					var _img = jQuery(this),
 						index = _img.data('index'),
 						parent = dom[(_img.data('parent')).type].eq((_img.data('parent')).index),
 						parentType = parent.hasClass('gv_panel') ? 'panel' : 'frame',
@@ -560,7 +560,7 @@ if (typeof Object.create !== 'function') {
             height = this.height;
 					
 					_img.bind("resizegalleryimage", function(){
-						var _img = $(this),
+						var _img = jQuery(this),
 							widthFactor = gv.innerWidth(parent) / width,
 							heightFactor = gv.innerHeight(parent) / height,
 							heightOffset = 0, widthOffset = 0;
@@ -687,7 +687,7 @@ if (typeof Object.create !== 'function') {
 			
 			switch(this.opts.panel_animation) {
 				case 'crossfade':
-					dom.gv_panels.eq(this.iterator).fadeOut(this.opts.transition_speed,function(){$(this).detach();});
+					dom.gv_panels.eq(this.iterator).fadeOut(this.opts.transition_speed,function(){jQuery(this).detach();});
 					panel.hide().prependTo(dom.gv_panelWrap).fadeIn(this.opts.transition_speed);
 					break;
 				case 'fade':
@@ -710,7 +710,7 @@ if (typeof Object.create !== 'function') {
 					
 					dom.gv_panels.eq(this.iterator).animate(
 						{ left: oldPanelEnd },
-						{ duration: this.opts.transition_speed, easing: this.opts.easing, complete: function(){ $(this).detach(); } }
+						{ duration: this.opts.transition_speed, easing: this.opts.easing, complete: function(){ jQuery(this).detach(); } }
 					);
 					break;
 				default:
@@ -721,7 +721,7 @@ if (typeof Object.create !== 'function') {
 			
 			// call the resize event again because IE does not seem to like it
 			// when image are resized that are not on the screen...
-			$("img", this.gv_galleryWrap).trigger( "resizegalleryimage" );
+			jQuery("img", this.gv_galleryWrap).trigger( "resizegalleryimage" );
 			
 			this.updateOverlay(i);
 			
@@ -906,13 +906,13 @@ if (typeof Object.create !== 'function') {
 			if(this.opts.pan_style === 'drag') {
 				dom.gv_panelWrap.delegate('.gv_panel img','mousedown.galleryview',function(e) {
 					self.isMouseDown = true;
-					$(this).css('cursor','url(http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur), n-resize');
+					jQuery(this).css('cursor','url(http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur), n-resize');
 				}).delegate('.gv_panel img','mouseup.galleryview',function(e) {
 					self.isMouseDown = false;
-					$(this).css('cursor','url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur), n-resize');
+					jQuery(this).css('cursor','url(http://www.google.com/intl/en_ALL/mapfiles/openhand.cur), n-resize');
 				}).delegate('.gv_panel img','mousemove.galleryview',function(e) {
 					var distY, distX,
-						image = $(this),
+						image = jQuery(this),
 						new_top, new_left;
 
 					if(self.isMouseDown) {
@@ -953,7 +953,7 @@ if (typeof Object.create !== 'function') {
 			});
 			
 			dom.gv_navWrap.delegate('div','click.galleryview',function(){
-				var el = $(this);
+				var el = jQuery(this);
 				if(el.hasClass('gv_navNext')) {
 					self.showNext();
 				} else if(el.hasClass('gv_navPrev')) {
@@ -976,7 +976,7 @@ if (typeof Object.create !== 'function') {
 			});
 			
 			dom.gv_filmstripWrap.delegate('.gv_frame','click.galleryview',function(){
-				var el = $(this),
+				var el = jQuery(this),
 					i = el.data('frameIndex');
 				
 				this.navAction = 'frame';
@@ -1024,7 +1024,7 @@ if (typeof Object.create !== 'function') {
 				
 			this.opts = $.extend({},$.fn.galleryView.defaults,options);
 			this.el = el;
-			this.$el = $(el);
+			this.$el = jQuery(el);
 			this.id = el.id;
 			this.iterator = this.frameIterator = this.opts.start_frame - 1;
 			this.overlayVisible = this.opts.show_overlays;
@@ -1034,7 +1034,7 @@ if (typeof Object.create !== 'function') {
 			this.mouse = { x: 0, y: 0 };
 			this.filmstripOrientation = (this.opts.filmstrip_position === 'top' || this.opts.filmstrip_position === 'bottom') ? 'horizontal' : 'vertical';
 			
-			$(document).bind('mousemove.galleryview',function(e) {
+			jQuery(document).bind('mousemove.galleryview',function(e) {
 				self.mouse = {x: e.pageX, y: e.pageY};	   
 			});
 			
@@ -1049,7 +1049,7 @@ if (typeof Object.create !== 'function') {
 				dom[elem[1]] = self.createElem({'class':elem[1]},elem[0]);
 			});
 			
-			dom.gv_imageStore.appendTo($('body'));
+			dom.gv_imageStore.appendTo(jQuery('body'));
 			
 			dom.gv_galleryWrap.delegate('img','mousedown.galleryview',function(e){ if(e.preventDefault) { e.preventDefault(); } });
 			
@@ -1080,7 +1080,7 @@ if (typeof Object.create !== 'function') {
 					dom.gv_gallery.append(
 						dom.gv_navWrap.append(
 							dom.gv_navPrev,
-							(this.opts.enable_slideshow?dom.gv_navPlay:$('<span></span>')),
+							(this.opts.enable_slideshow?dom.gv_navPlay:jQuery('<span></span>')),
 							dom.gv_navNext
 						)
 					);
@@ -1143,10 +1143,10 @@ if (typeof Object.create !== 'function') {
 			this.buildGallery(false);
 			
 			// resize images in view
-			$("img", this.gv_galleryWrap).trigger( "resizegalleryimage" );
+			jQuery("img", this.gv_galleryWrap).trigger( "resizegalleryimage" );
 			
 			// resize images out of view
-			$("img", this.dom.gv_panels).trigger( "resizegalleryimage" );
+			jQuery("img", this.dom.gv_panels).trigger( "resizegalleryimage" );
 		}
 		
 	}; // END GalleryView
