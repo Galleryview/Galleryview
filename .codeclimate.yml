@@ -2,13 +2,15 @@
 engines:
   csslint:
     enabled: true
+  scss-lint:
+    enabled: true
+  markdownlint:
+    enabled: true
   duplication:
     enabled: true
     config:
       languages:
-      - ruby
       - javascript
-      - python
       - php
   eslint:
     enabled: true
@@ -17,6 +19,7 @@ engines:
 ratings:
   paths:
   - "**.css"
+  - "**.scss"
   - "**.inc"
   - "**.js"
   - "**.jsx"
@@ -24,4 +27,17 @@ ratings:
   - "**.php"
   - "**.py"
   - "**.rb"
-exclude_paths: []
+exclude_paths:
+  - "**.png"
+  - "**.jpg"
+  - "**.gif"
+  - "gulpfile.js"
+  - "composer.lock"
+  - "phpcs.xml"
+  - "**.json"
+  - "**.pot"
+  - "**.txt"
+  - "**-min.js"
+  - "**-min.css"
+  - "**.dist"
+  - "**.sh"
