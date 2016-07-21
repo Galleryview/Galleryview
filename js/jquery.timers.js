@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * jQuery.timers - Timer abstractions for jQuery
  * http://jquery.offput.ca/every/
  * Written by Blair Mitchelmore (blair DOT mitchelmore AT gmail DOT com)
@@ -45,7 +45,7 @@ jQuery.extend({
 			'ks': 1000000
 		},
 		timeParse: function(value) {
-			if (value == undefined || value == null)
+			if (value === undefined || value === null)
 				return null;
 			var result = this.regex.exec(jQuery.trim(value.toString()));
 			if (result[2]) {
@@ -71,7 +71,7 @@ jQuery.extend({
 			if (typeof interval != 'number' || isNaN(interval) || interval < 0)
 				return;
 
-			if (typeof times != 'number' || isNaN(times) || times < 0) 
+			if (typeof times !== 'number' || isNaN(times) || times < 0) 
 				times = 0;
 			
 			times = times || 0;
